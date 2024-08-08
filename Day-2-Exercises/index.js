@@ -39,8 +39,8 @@ console.log('The quote \'There is no exercise better for the heart than reaching
 console.log('/"Love is not patronizing and charity isn\'t about pity, it is about love. Charity and love are the same -- with charity you give love, so don\'t just give money but reach out your hand instead.\"')
 
 //Check if typeof '10' is exactly equal to 10. If not make it exactly equal.
-console.log(typeof(parseInt('10')) == typeof(10))
-console.log(typeof('10') == typeof(toString(10)))
+console.log('10' == 10)
+
 
 //Check if parseFloat('9.8') is equal to 10 if not make it exactly equal with 10.
 console.log(Math.round(parseFloat('9.8')) == 10)
@@ -55,13 +55,13 @@ let sentence = 'I hope this course is not full of jargon.'
 console.log(sentence.includes('jargon'))
 
 //Generate a random number between 0 and 100 inclusively.
-console.log(Math.floor(Math.random()*100))
+console.log(Math.floor(Math.random()*101))
 
 //Generate a random number between 50 and 100 inclusively.
-console.log(50 + Math.floor(Math.random()*50))
+console.log(50 + Math.floor(Math.random()*51))
 
 //Generate a random number between 0 and 255 inclusively.
-console.log(Math.floor(Math.random()*255))
+console.log(Math.floor(Math.random()*256))
 
 //Access the 'JavaScript' string characters using a random number.
 let javaString = 'JavaScript'
@@ -100,3 +100,7 @@ let incomeText = 'He earns 5000 euro from salary per month, 10000 euro annual bo
 let result = 0
 let incomeArray = incomeText.split(" ")
 console.log('Annual income: ', parseInt(incomeArray[2]) * 12 + parseInt(incomeArray[8]) + parseInt(incomeArray[12]) * 12)
+
+let numberPattern = /(\d+)/g
+incomeArray = incomeText.match(numberPattern)
+console.log('Annual income: ', parseInt(incomeArray[0]) * 12 + parseInt(incomeArray[1]) + parseInt(incomeArray[2]) * 12)
