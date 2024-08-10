@@ -66,7 +66,7 @@ const myDateObj = new Date()
 console.log('The year:', myDateObj.getFullYear())
 console.log('The month:', myDateObj.getMonth())
 console.log('The date:', myDateObj.getDate())
-console.log('The day:', myDateObj.getDay)
+console.log('The day:', myDateObj.getDay())
 console.log('The hours:', myDateObj.getHours())
 console.log('The minutes:', myDateObj.getMinutes())
 console.log('The seconds elapsed from January 1, 1970 to now:', parseInt(Date.now()/1000))
@@ -98,13 +98,9 @@ console.log('The perimeter of rectangle is:', 2 * (length + width))
 let radius = prompt('Enter radius:')
 console.log('The area of a circle is:', Math.PI * Math.pow(radius,2))
 
-//Calculate the slope, x-intercept and y-intercept of y = 2x -2
-
-/*Slope is m = (y2-y1)/(x2-x1). Find the slope between point (2, 2) and point(6,10)
-
-Compare the slope of above two questions.
-
-Calculate the value of y (y = x2 + 6x + 9). Try to use different x values and figure out at what x value y is 0.*/
+//Calculate the value of y (y = x2 + 6x + 9). Try to use different x values and figure out at what x value y is 0.
+let x = -3
+console.log(`y = ${Math.pow(x, 2) + 6 * x + 9}`)
 
 //Writ a script that prompt a user to enter hours and rate per hour. Calculate pay of the person?
 let numHours = prompt('Enter number of working hours per week:')
@@ -118,9 +114,49 @@ name.length > 7
 : console.log(`Your name ${name} is short`)
 
 //Compare your first name length and your family name length and you should get this output.
-let firstName = 'Dmitry'
-let lastName = 'Lazarev'
-console.log(firstName.length, lastName.length)
 firstName.length > lastName.length
 ? console.log(`Your first name, ${firstName} is longer than your family name, ${lastName}`)
 : console.log(`Your first name, ${firstName} is equeal or same as your family name, ${lastName}`)
+
+//Declare two variables myAge and yourAge and assign them initial values and myAge and yourAge.
+let myAge = 44
+let yourAge = 45
+myAge > yourAge
+? console.log(`I am ${myAge - yourAge} years older than you.`)
+: console.log(`I am ${yourAge - myAge} years younger than you.`)
+
+//Using prompt get the year the user was born and if the user is 18 or above allow the user to drive if not tell the user to wait a certain amount of years.
+let userAge = prompt('How old are you?')
+userAge >= 18
+? console.log('You can drive')
+: console.log(`Wait ${18 - userAge} years`)
+
+//Write a script that prompt the user to enter number of years. Calculate the number of seconds a person can live. Assume some one lives just hundred years
+let lifeTime = 100
+console.log(`You lived ${lifeTime * 365 * 24 * 60 * 60}`)
+
+/*Create a human readable time format using the Date time object
+
+YYYY-MM-DD HH:mm
+DD-MM-YYYY HH:mm
+DD/MM/YYYY HH:mm
+*/
+let now = new Date()
+let formatYYYY = now.getFullYear()
+let formatMM = now.getMonth().toString().padStart(2, '0')
+let formatDD = now.getDay().toString().padStart(2, '0')
+let formatHH = now.getHours().toString().padStart(2, '0')
+let formatmm = now.getMinutes().toString().padStart(2, '0')
+
+console.log(`${formatYYYY}-${formatMM}-${formatDD} ${formatHH}:${formatmm}`)
+console.log(`${formatDD}-${formatMM}-${formatYYYY} ${formatHH}:${formatmm}`)
+console.log(`${formatDD}/${formatMM}/${formatYYYY} ${formatHH}:${formatmm}`)
+
+
+//Exercises: Level 3
+
+/*Create a human readable time format using the Date time object. The hour and the minute should be all the time two digits(7 hours should be 07 and 5 minutes should be 05 )
+YYY-MM-DD HH:mm eg. 20120-01-02 07:05
+*/
+
+// !!!!!!!!!!!This one already completed in prevoius task!!!!!!!!!!!
