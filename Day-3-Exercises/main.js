@@ -113,9 +113,7 @@ console.log(`Your name ${name} is ${name.length > 7 ? 'long':'short'}`)
 
 
 //Compare your first name length and your family name length and you should get this output.
-firstName.length > lastName.length
-? console.log(`Your first name, ${firstName} is longer than your family name, ${lastName}`)
-: console.log(`Your first name, ${firstName} is equeal or same as your family name, ${lastName}`)
+console.log(`Your first name, ${firstName} is ${firstName.length > lastName.length?'longer than':'equeal or same as'} your family name, ${lastName}`)
 
 //Declare two variables myAge and yourAge and assign them initial values and myAge and yourAge.
 let myAge = 44
@@ -127,8 +125,7 @@ myAge > yourAge
 //Using prompt get the year the user was born and if the user is 18 or above allow the user to drive if not tell the user to wait a certain amount of years.
 let userAge = prompt('How old are you?')
 userAge >= 18
-? console.log('You can drive')
-: console.log(`Wait ${18 - userAge} years`)
+console.log(`${userAge >= 18?'You can drive':`Wait ${18 - userAge} years`}`)
 
 //Write a script that prompt the user to enter number of years. Calculate the number of seconds a person can live. Assume some one lives just hundred years
 let lifeTime = 100
