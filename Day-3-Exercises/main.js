@@ -109,9 +109,8 @@ console.log('Your weekly earning is', numHours * rate)
 
 //If the length of your name is greater than 7 say, your name is long else say your name is short.
 let name = prompt ('Enter your name:')
-name.length > 7
-? console.log(`Your name ${name} is long`)
-: console.log(`Your name ${name} is short`)
+console.log(`Your name ${name} is ${name.length > 7 ? 'long':'short'}`)
+
 
 //Compare your first name length and your family name length and you should get this output.
 firstName.length > lastName.length
