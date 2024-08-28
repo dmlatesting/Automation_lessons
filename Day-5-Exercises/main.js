@@ -84,10 +84,10 @@ itCompanies.forEach((element, index) => {
 console.log(tempArr)
 
 // Sort the array using sort() method
-itCompanies.sort
+itCompanies.sort()
 
 // Reverse the array using reverse() method
-itCompanies.reverse
+itCompanies.reverse()
 
 // Slice out the first 3 companies from the array
 console.log(itCompanies.slice(0,3))
@@ -168,33 +168,32 @@ console.log(fullStack)
 //Exercise: Level 3
 
 //The following is an array of 10 students ages:
-const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24, 119]
 
-/*
-- Sort the array and find the min and max age
-- Find the median age(one middle item or two middle items divided by two)
-- Find the average age(all items divided by number of items)
-- Find the range of the ages(max minus min)
-- Compare the value of (min - average) and (max - average), use abs() method 
-*/
-ages.sort()
+//- Sort the array and find the min and max age
+ages.sort(function (a, b) {  return a - b;  });
 let minAge = ages[0]
 let maxAge = ages[ages.length - 1]
 console.log(ages)
 console.log( `Min age: ${minAge}, Max age: ${maxAge}`)
 
+//- Find the average age(all items divided by number of items)
 let sum = 0
 ages.forEach(element => {sum = sum + element})
 let average = sum / ages.length
 console.log(sum, `Average age: ${average} `)
 
+ages.reduce((sumValue, currentValue) => sumValue + currentValue, 0)
+console.log(sum, `Average age (second method): ${average} `)
+
+//- Find the range of the ages(max minus min)
 console.log(`Range: ${maxAge - minAge} `)
 
+//- Compare the value of (min - average) and (max - average), use abs() method
 console.log(Math.abs(minAge - average) === maxAge - average)
 
 //Slice the first ten countries from the countries array
 console.log(countries.slice(0,10))
-
 
 //Find the middle country(ies) in the countries array
 center = Math.floor(countries.length / 2)
