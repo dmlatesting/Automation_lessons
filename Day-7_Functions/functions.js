@@ -228,11 +228,20 @@ console.log(reverseArray([1, 2, 3, 4, 5]))
 console.log(reverseArray(['A', 'B', 'C']))
 
 // Declare a function name capitalizeArray. It takes array as a parameter and it returns the - capitalizedarray.
+// Using .forEach()
 function capitalizeArray(arr){
-    const capitalizedArr = []
-    for (let i = 0; i < arr.length; i++) {
-        capitalizedArr.push(arr[i].toString().toUpperCase())
-    }
+    const capitalizedArr = []    
+    arr.forEach(element => {
+        capitalizedArr.push(element.toString().toUpperCase())
+    })
+    return capitalizedArr
+}
+console.log(capitalizeArray([['a', 'b', 'c']]));
+
+// Using .map()
+function capitalizeArray(arr){
+    const capitalizedArr = arr.map((element) => element.toString().toUpperCase())  
+    
     return capitalizedArr
 }
 console.log(capitalizeArray([['a', 'b', 'c']]));
@@ -364,23 +373,23 @@ function userIdGenerator(length = 7){
 // Exercises: Level 3
 
 // Modify the userIdGenerator function. Declare a function name userIdGeneratedByUser. It doesn’t take any parameter but it takes two inputs using prompt(). One of the input is the number of characters and the second input is the number of ids which are supposed to be generated.
-// function userIdGeneratedByUser(){
-//     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'    
-//     const arrOfIds = []
-//     let id = ''
-//     let length = prompt('Enter length of IDs:')
-//     let numOfIds = prompt('Enter number of IDs:')
-//     for (let j = 0; j < numOfIds; j++){
-//         for (let i = 0; i < length; i++) {
-//             const randomIndex = Math.floor(Math.random() * characters.length);
-//             id += characters.charAt(randomIndex);
-//         }
-//         arrOfIds.push(id)
-//         id = ''
-//     }
-//     return arrOfIds
-// }
-// console.log(userIdGeneratedByUser());
+function userIdGeneratedByUser(){
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'    
+    const arrOfIds = []
+    let id = ''
+    let length = prompt('Enter length of IDs:')
+    let numOfIds = prompt('Enter number of IDs:')
+    for (let j = 0; j < numOfIds; j++){
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            id += characters.charAt(randomIndex);
+        }
+        arrOfIds.push(id)
+        id = ''
+    }
+    return arrOfIds
+}
+console.log(userIdGeneratedByUser());
 
 // Write a function name rgbColorGenerator and it generates rgb colors.
 // rgbColorGenerator()
@@ -563,14 +572,12 @@ console.log(isPrime(13));
 
 // Write a functions which checks if all items are unique in the array.
 function areAllUnique(array) {
-    const uniqueNumbers = []
-    for (let element of array) {
-        if (uniqueNumbers.includes(element)) {
-            return false
-        }
-        uniqueNumbers.push(element);
+    const uniqueNumbers = new Set(array)    
+    if (uniqueNumbers.size === array.length) {
+        return true
+    }else {
+        return false
     }
-    return true
 }
 console.log(areAllUnique([1, 2, 3, 4, 4]));
 
