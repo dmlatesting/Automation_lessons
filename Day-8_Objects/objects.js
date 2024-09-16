@@ -164,16 +164,16 @@ const personAccount = {
         { description: 'Other expenses', amount: 300 }
     ],
    
-    totalIncome() {
+    getTotalIncome() {
         return this.incomes.reduce((total, income) => total + income.amount, 0);
     },
 
-    totalExpense() {
+    getTotalExpense() {
         return this.expenses.reduce((total, expense) => total + expense.amount, 0);
     },
 
     accountInfo() {
-        return `Account of ${this.firstName} ${this.lastName} has total income: $${this.totalIncome()} and total expenses: $${this.totalExpense()}.`;
+        return `Account of ${this.firstName} ${this.lastName} has total income: $${this.getTotalIncome()} and total expenses: $${this.getTotalExpense()}.`;
     },
 
     addIncome(description, amount) {
@@ -185,7 +185,7 @@ const personAccount = {
     },
 
     accountBalance() {
-        return this.totalIncome() - this.totalExpense();
+        return this.getTotalIncome() - this.getTotalExpense();
     }
 };
 
@@ -280,10 +280,13 @@ function formatDate(date) {    // Help function to format date
     return `${formatMM}/${formatDD}/${formatYYYY} ${formatHH}:${formatmm} ${ampm}` 
 }
 
-function signUp(users, newUser) {    
+function checkUserExist(users, newUser){
     const userExists = users.some(user => user.username === newUser.username || user.email === newUser.email)
+    return userExists
+}
 
-    if (userExists) {
+function signUp(users, newUser) {       
+    if (checkUserExist(users,newUser)) {
         console.log(userExists,'User already has an account.')
         return
     } 
@@ -298,6 +301,7 @@ function signUp(users, newUser) {
     console.log('User signed up successfully.')
     
 }
+console.log('++++++++++++++++++++++++++');
 signUp(usersLevel3, dmitry);
 
 // b. Create a function called signIn which allows user to sign in to the application
