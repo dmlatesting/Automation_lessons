@@ -39,8 +39,8 @@ console.log('The quote \'There is no exercise better for the heart than reaching
 console.log('/"Love is not patronizing and charity isn\'t about pity, it is about love. Charity and love are the same -- with charity you give love, so don\'t just give money but reach out your hand instead.\"')
 
 //Check if typeof '10' is exactly equal to 10. If not make it exactly equal.
-console.log('10' == 10)
-
+console.log('10' === 10)
+console.log(parseInt('10') === 10)
 
 //Check if parseFloat('9.8') is equal to 10 if not make it exactly equal with 10.
 console.log(Math.round(parseFloat('9.8')) == 10)
