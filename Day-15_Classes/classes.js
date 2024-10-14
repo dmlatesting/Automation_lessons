@@ -99,15 +99,15 @@ class Statistics {
   }
 
   min(){
-    return this.data[0]
+    return Math.min(...this.data)
   }
 
   max() {
-    return this.data[this.data.length - 1]
+    return Math.max(...this.data)
   }
 
-  range() {
-    return this.data[this.data.length - 1] - this.data[0]
+  range() {    
+    return Math.max(...this.data) - Math.min(...this.data)
   }
 
   mean() {
