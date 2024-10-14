@@ -42,12 +42,18 @@ class Animal {
 
 // Create a Dog and Cat child class from the Animal Class.
 class Dog extends Animal {
+  constructor(name, age, color, legs){
+    super(name, age, color, legs)
+  }
   saySomething() {
     console.log('WOOF WOOF')
   }
 }
 
 class Cat extends Animal {
+  constructor(name, age, color, legs){
+    super(name, age, color, legs)
+  }
   saySomething() {
     console.log('MEOW MEOW')
   }
@@ -75,8 +81,9 @@ class SmallDog extends Dog {
 // You can create a class called Statistics and create all the functions which do statistical calculations as method for the Statistics class. Check the output below.
 const ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
 class Statistics {
-  constructor(data = []){
-  this.data = data
+  constructor(data){
+    if (!data) { throw new Error('Data should be passed')}
+    this.data = data
   }
 
   setData(newData) {
@@ -141,7 +148,6 @@ class Statistics {
 }
 
 const statistics = new Statistics(ages)
-statistics.setData(ages)
 console.log('Count:', statistics.count())
 console.log('Sum: ', statistics.sum()) // 744
 console.log('Min: ', statistics.min()) // 24
